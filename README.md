@@ -8,6 +8,18 @@ A lightweight, clean desktop flashcard application built with Vue 3, Vite, and E
 - **Searchable Dictionary**: Click "View All Cards" to open a 3-column, responsive grid showing every card in the deck, complete with a real-time search bar.
 - **End-of-Session Analytics**: When you finish a deck, the app displays a grid of any terms you struggled with (missed 2 or more times) so you know exactly what to focus on.
 
+## Json Formatting 
+
+```json
+[
+  {
+    "id": 1,
+    "term": "",
+    "definition": ""
+  }
+]
+```
+
 ## Development Setup
 
 To run the app in development mode (with hot-reloading):
