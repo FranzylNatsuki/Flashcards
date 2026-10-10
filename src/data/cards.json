@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "term": "Agentic AI",
+    "definition": "Systems that can perceive their environment, make decisions, and take actions to achieve specific goals autonomously."
+  },
+  {
+    "id": 2,
+    "term": "Vue.js",
+    "definition": "A progressive JavaScript framework for building user interfaces."
+  },
+  {
+    "id": 3,
+    "term": "Reactive State",
+    "definition": "Variables that automatically trigger UI updates when their values change."
+  },
+  {
+    "id": 4,
+    "term": "Vite",
+    "definition": "A fast build tool and development server for modern web projects."
+  },
+  {
+    "id": 5,
+    "term": "Single File Component (SFC)",
+    "definition": "A file with a .vue extension that encapsulates template, logic, and styling for a specific UI element."
+  }
+]

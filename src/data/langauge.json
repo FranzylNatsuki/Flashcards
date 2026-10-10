@@ -1,0 +1,327 @@
+[
+  {
+    "id": 1,
+    "term": "Natural Language Processing (NLP)",
+    "definition": "Tasks where an AI receives human language as input."
+  },
+  {
+    "id": 2,
+    "term": "Automatic summarization",
+    "definition": "Text in, a shorter summary out."
+  },
+  {
+    "id": 3,
+    "term": "Information extraction",
+    "definition": "The task of extracting knowledge from documents (for example, companies and the years they were founded)."
+  },
+  {
+    "id": 4,
+    "term": "Language identification",
+    "definition": "Given text, return which language it is in."
+  },
+  {
+    "id": 5,
+    "term": "Machine translation",
+    "definition": "Text in one language in, the translation in another out."
+  },
+  {
+    "id": 6,
+    "term": "Named entity recognition",
+    "definition": "Find the names of entities in text, such as companies or places."
+  },
+  {
+    "id": 7,
+    "term": "Speech recognition",
+    "definition": "Audio of speech in, the same words as text out."
+  },
+  {
+    "id": 8,
+    "term": "Text classification / categorization",
+    "definition": "Assign text to a type (spam vs. inbox, positive vs. negative)."
+  },
+  {
+    "id": 9,
+    "term": "Word sense disambiguation",
+    "definition": "Choose the correct meaning of a word with several meanings (\"bank\" as money vs. riverside)."
+  },
+  {
+    "id": 10,
+    "term": "Syntax",
+    "definition": "The structure of a sentence; whether words are arranged grammatically. Can be grammatical and still ambiguous (\"I saw the man on the mountain with a telescope\")."
+  },
+  {
+    "id": 11,
+    "term": "Semantics",
+    "definition": "The meaning of words or sentences. Different structures or words can carry the same meaning, and a grammatical sentence can be meaningless (\"Colorless green ideas sleep furiously\")."
+  },
+  {
+    "id": 12,
+    "term": "Formal grammar",
+    "definition": "A system of rules for generating sentences in a language."
+  },
+  {
+    "id": 13,
+    "term": "Context-free grammar (CFG)",
+    "definition": "A formal grammar of rewrite rules where each rule applies regardless of the surrounding words."
+  },
+  {
+    "id": 14,
+    "term": "Rewrite rule",
+    "definition": "A rule such as S → NP VP, read \"a sentence can be rewritten as a noun phrase followed by a verb phrase.\""
+  },
+  {
+    "id": 15,
+    "term": "Terminal",
+    "definition": "An actual word in the grammar (she, saw, the). Nothing rewrites it further."
+  },
+  {
+    "id": 16,
+    "term": "Non-terminal",
+    "definition": "A symbol that can still be expanded (S, NP, VP)."
+  },
+  {
+    "id": 17,
+    "term": "S",
+    "definition": "Sentence."
+  },
+  {
+    "id": 18,
+    "term": "NP",
+    "definition": "Noun Phrase, a group of words built around a noun (\"she\", \"the city\")."
+  },
+  {
+    "id": 19,
+    "term": "VP",
+    "definition": "Verb Phrase, a group of words built around a verb (\"saw the city\")."
+  },
+  {
+    "id": 20,
+    "term": "PP",
+    "definition": "Prepositional Phrase (\"with python\")."
+  },
+  {
+    "id": 21,
+    "term": "N / V / D / P / ADJ",
+    "definition": "N: Noun. V: Verb. D: Determiner (the, a, an). P: Preposition (to, on, over). ADJ: Adjective (blue, busy, old)."
+  },
+  {
+    "id": 22,
+    "term": "Parse tree / syntax tree",
+    "definition": "A diagram showing how words group into phrases and phrases into a sentence."
+  },
+  {
+    "id": 23,
+    "term": "Parsing",
+    "definition": "Working out the tree for a sentence from its words."
+  },
+  {
+    "id": 24,
+    "term": "Recursion (in grammar)",
+    "definition": "A rule whose output contains its own symbol (NP → NP PP), allowing sentences of unlimited length from finitely many rules."
+  },
+  {
+    "id": 25,
+    "term": "nltk",
+    "definition": "The Natural Language Toolkit, a Python library used to define a grammar and parse sentences against it."
+  },
+  {
+    "id": 26,
+    "term": "Chart parser",
+    "definition": "nltk's parser, which remembers partial results and returns every valid tree."
+  },
+  {
+    "id": 27,
+    "term": "Tokenization",
+    "definition": "The task of splitting a sequence of characters into pieces (tokens)."
+  },
+  {
+    "id": 28,
+    "term": "Word tokenization",
+    "definition": "Splitting characters into words."
+  },
+  {
+    "id": 29,
+    "term": "Sentence tokenization",
+    "definition": "Splitting characters into sentences."
+  },
+  {
+    "id": 30,
+    "term": "Tokenization challenges",
+    "definition": "Punctuation stuck to words (\"remains,\"), apostrophes (o'clock), hyphens (pearl-grey), and periods that can mean \"Mr.\" or the end of a sentence."
+  },
+  {
+    "id": 31,
+    "term": "n-gram",
+    "definition": "A contiguous sequence of n items from a sample of text."
+  },
+  {
+    "id": 32,
+    "term": "Character n-gram",
+    "definition": "A contiguous sequence of n characters."
+  },
+  {
+    "id": 33,
+    "term": "Word n-gram",
+    "definition": "A contiguous sequence of n words."
+  },
+  {
+    "id": 34,
+    "term": "Unigram",
+    "definition": "An n-gram of 1 item."
+  },
+  {
+    "id": 35,
+    "term": "Bigram",
+    "definition": "An n-gram of 2 items."
+  },
+  {
+    "id": 36,
+    "term": "Trigram",
+    "definition": "An n-gram of 3 items."
+  },
+  {
+    "id": 37,
+    "term": "Markov model",
+    "definition": "A model where each item depends only on a finite number of previous items. For text, it predicts the next word from the last n−1 words, so it can generate text that is locally fluent but lacks meaning and purpose."
+  },
+  {
+    "id": 38,
+    "term": "Markov property",
+    "definition": "The future depends only on the current state, not on how you got there."
+  },
+  {
+    "id": 39,
+    "term": "Bag-of-words model",
+    "definition": "A model that represents text as an unordered collection of words, ignoring order and grammar."
+  },
+  {
+    "id": 40,
+    "term": "Sentiment analysis",
+    "definition": "Classifying text as positive or negative (for example, product reviews)."
+  },
+  {
+    "id": 41,
+    "term": "Bayes' rule",
+    "definition": "P(b | a) = P(a | b) · P(b) / P(a)."
+  },
+  {
+    "id": 42,
+    "term": "Naive Bayes",
+    "definition": "A classifier that scores each class as P(class) · P(word₁ | class) · P(word₂ | class) · ..., then normalizes. \"Naive\" because it assumes words are independent of each other given the class."
+  },
+  {
+    "id": 43,
+    "term": "Prior probability",
+    "definition": "How likely a class is before seeing any words, for example P(positive) = positive samples / total samples."
+  },
+  {
+    "id": 44,
+    "term": "Proportional to (∝)",
+    "definition": "Equal up to a scaling factor. Naive Bayes drops the denominator P(words) and normalizes at the end so the probabilities sum to 1."
+  },
+  {
+    "id": 45,
+    "term": "Normalization",
+    "definition": "Dividing each score by the total so the results sum to 1 (in the slides, 0.6837 and 0.3163)."
+  },
+  {
+    "id": 46,
+    "term": "Additive smoothing",
+    "definition": "Adding a value α to each value in the distribution so that no probability is exactly 0."
+  },
+  {
+    "id": 47,
+    "term": "Laplace smoothing",
+    "definition": "Additive smoothing with α = 1, pretending each value was seen one more time than it actually was."
+  },
+  {
+    "id": 48,
+    "term": "Information retrieval",
+    "definition": "The task of finding relevant documents in response to a user query."
+  },
+  {
+    "id": 49,
+    "term": "Topic modeling",
+    "definition": "Models for discovering the topics of a set of documents."
+  },
+  {
+    "id": 50,
+    "term": "Term frequency (TF)",
+    "definition": "The number of times a term appears in a document."
+  },
+  {
+    "id": 51,
+    "term": "Function words",
+    "definition": "Words with little meaning on their own, used to connect other words grammatically (am, by, do, is, which, with, yet)."
+  },
+  {
+    "id": 52,
+    "term": "Content words",
+    "definition": "Words that carry meaning independently (algorithm, category, computer)."
+  },
+  {
+    "id": 53,
+    "term": "Inverse document frequency (IDF)",
+    "definition": "A measure of how common or rare a word is across documents: log(total documents / number of documents containing the word). A word in every document scores 0."
+  },
+  {
+    "id": 54,
+    "term": "tf-idf",
+    "definition": "A ranking of which words are important in a document, found by multiplying TF by IDF."
+  },
+  {
+    "id": 55,
+    "term": "Template (information extraction)",
+    "definition": "A pattern with blanks, such as \"When {company} was founded in {year},\" used to pull out facts."
+  },
+  {
+    "id": 56,
+    "term": "WordNet",
+    "definition": "A dictionary-like database giving words definitions and broader categories, linking semantically similar words."
+  },
+  {
+    "id": 57,
+    "term": "One-hot representation",
+    "definition": "Representing a word as a vector with a single 1 and all other values 0. Huge for large vocabularies, and it cannot show that \"wrote\" and \"authored\" are similar."
+  },
+  {
+    "id": 58,
+    "term": "Distributed representation",
+    "definition": "Representing meaning spread across multiple values in a shorter vector. The slides label it \"distribution representation.\" Similar words get similar vectors."
+  },
+  {
+    "id": 59,
+    "term": "Word embedding / word vector",
+    "definition": "A distributed representation of a single word."
+  },
+  {
+    "id": 60,
+    "term": "\"You shall know a word by the company it keeps\"",
+    "definition": "J. R. Firth, 1957. A word's meaning can be inferred from the words around it."
+  },
+  {
+    "id": 61,
+    "term": "word2vec",
+    "definition": "A model for generating word vectors."
+  },
+  {
+    "id": 62,
+    "term": "Skip-gram architecture",
+    "definition": "A neural network that predicts context words given a target word. Its hidden layer becomes the word vectors."
+  },
+  {
+    "id": 63,
+    "term": "Target word / context word",
+    "definition": "The word fed in, and the nearby words the network tries to predict."
+  },
+  {
+    "id": 64,
+    "term": "Word arithmetic",
+    "definition": "Relationships show up as vector differences, for example king − man + woman ≈ queen."
+  },
+  {
+    "id": 65,
+    "term": "Cosine similarity",
+    "definition": "A common way to measure how close two vectors are."
+  }
+]
