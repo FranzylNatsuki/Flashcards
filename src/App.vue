@@ -1,7 +1,6 @@
 <script setup>
 import { ref, computed, watch } from 'vue'
 
-// Empty initial state!
 const allCards = ref([])
 const currentQueue = ref([])
 const nextPhaseQueue = ref([])
@@ -15,6 +14,9 @@ const cardKey = ref(0)
 // Modal & Search state
 const isModalOpen = ref(false)
 const searchQuery = ref('')
+
+// Analytics state
+const mistakesCounts = ref({})
 
 const hasCards = computed(() => allCards.value.length > 0)
 
@@ -34,6 +36,13 @@ const filteredCards = computed(() => {
   )
 })
 
+// Analytics for struggled cards
+const struggledCards = computed(() => {
+  return allCards.value
+    .filter(card => (mistakesCounts.value[card.id] || 0) >= 2)
+    .sort((a, b) => mistakesCounts.value[b.id] - mistakesCounts.value[a.id])
+})
+
 const flip = () => {
   isFlipped.value = !isFlipped.value
 }
@@ -43,6 +52,9 @@ const markMemorized = () => {
 }
 
 const markNotMemorized = () => {
+  const currentId = currentQueue.value[0].id
+  mistakesCounts.value[currentId] = (mistakesCounts.value[currentId] || 0) + 1
+  
   // Push the exact card into the next phase bucket
   nextPhaseQueue.value.push(currentQueue.value[0])
   advanceCard()
@@ -103,6 +115,7 @@ const restart = () => {
   nextPhaseQueue.value = []
   sessionFinished.value = false
   isFlipped.value = false
+  mistakesCounts.value = {}
   cardKey.value++
 }
 
@@ -124,6 +137,7 @@ const handleFileUpload = (event) => {
         allCards.value = formattedCards;
         isShuffled.value = false;
         searchQuery.value = '';
+        mistakesCounts.value = {};
         restart();
       } else {
         alert('Invalid JSON format or empty deck. Expected an array of flashcards.');
@@ -208,6 +222,17 @@ const handleFileUpload = (event) => {
       <div v-else class="finished-screen">
         <h2>Review Complete! 🎉</h2>
         <p>You have successfully memorized all the cards.</p>
+        
+        <div v-if="struggledCards.length > 0" class="struggled-section">
+          <h3>Terms you struggled with:</h3>
+          <div class="struggled-grid">
+            <div v-for="card in struggledCards" :key="card.id" class="struggled-card">
+              <div class="struggled-term">{{ card.term }}</div>
+              <div class="struggled-count">Missed {{ mistakesCounts[card.id] }} times</div>
+            </div>
+          </div>
+        </div>
+
         <button class="restart-btn" @click="restart">Review Again</button>
       </div>
     </template>
@@ -244,7 +269,7 @@ const handleFileUpload = (event) => {
 .flashcard-app {
   text-align: center;
   width: 100vw;
-  max-width: 600px; /* Keep main app constrained */
+  max-width: 600px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -314,8 +339,8 @@ const handleFileUpload = (event) => {
 
 .modal-content {
   background: white;
-  width: 95%; /* Take up most of screen width */
-  max-width: 1100px; /* Big enough for 3 columns */
+  width: 95%;
+  max-width: 1100px;
   max-height: 85vh;
   border-radius: 12px;
   display: flex;
@@ -518,6 +543,7 @@ const handleFileUpload = (event) => {
   cursor: pointer;
   font-weight: 600;
   transition: background-color 0.2s;
+  margin-top: 10px;
 }
 
 .restart-btn:hover {
@@ -619,7 +645,7 @@ const handleFileUpload = (event) => {
 }
 
 .finished-screen {
-  padding: 60px 40px;
+  padding: 40px 40px;
   background: white;
   border-radius: 16px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.05);
@@ -632,6 +658,51 @@ const handleFileUpload = (event) => {
 
 .finished-screen p {
   color: #4b5563;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+}
+
+/* Analytics Styles */
+.struggled-section {
+  margin: 24px 0;
+  text-align: left;
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.struggled-section h3 {
+  margin-top: 0;
+  color: #be123c;
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+}
+
+.struggled-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.struggled-card {
+  background: white;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  border: 1px solid #ffe4e6;
+}
+
+.struggled-term {
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 4px;
+}
+
+.struggled-count {
+  font-size: 0.85rem;
+  color: #e11d48;
+  font-weight: 500;
 }
 </style>
